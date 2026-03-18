@@ -1,7 +1,37 @@
-{
-    "name": "Tatheer",
-    "email": "bc250417097stf@vu.edu.pk",
-    "age": 19,
-    "password": "Apple.pir2",
-    "ide": "kkW375"
-}
+[
+    {
+        "name": "Uzair",
+        "email": "Uzair123@gmail.com",
+        "age": 18,
+        "password": "billie123",
+        "ide": "FSh784"
+    },
+    {
+        "name": "Laiba",
+        "email": "laiba321@gmail.com",
+        "age": 17,
+        "password": "beautyqueen123",
+        "ide": "JIJ338"
+    },
+    {
+        "name": "Mahnoor",
+        "email": "mahnoor234@gmail.com",
+        "age": 15,
+        "password": "pretty4567",
+        "ide": "tqh466"
+    },
+    {
+        "name": "Tatheer",
+        "email": "heeriye123@gmail.com",
+        "age": 19,
+        "password": "hpgal123",
+        "ide": "HET400"
+    },
+    {
+        "name": "Ayeda",
+        "email": "ayeda123@gmail.com",
+        "age": 19,
+        "password": "pagalhunma",
+        "ide": "LQI793"
+    }
+]

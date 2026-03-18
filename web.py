@@ -18,14 +18,57 @@ if menu == "Add member":
 
     if st.button("Submit"):
         if name and email and age and password:
-            lib=Library()
-            user,msg=lib.Add_member(name,email,int(age),password)
+            user,msg=Library.Add_member(name,email,int(age),password)
             st.success(msg)
             if user:
                 st.write(f"Your member ide is: {user['ide']}")
         else:
             st.warning("Fill all fields")
-        
-        
+
+if menu=="Delete member":
+    st.subheader("Delete an existing member")
+    acc_no=st.text_input("Enter the id ")
+    password=st.text_input("Enter password")
+
+    if st.button("Submit"):
+        msg=Library.delete_account(acc_no,password)
+        if "successfully" in msg:
+            st.success(msg)
+        else:
+            st.warning(msg)
+
+if menu=="Update member info":
+    pass
+
+if menu=="Add Book":
+    st.subheader("Add New Book")
+    name=st.text_input("Enter Book name")
+    author=st.text_input("Author name")
+    genre=st.text_input("Enter genre of book")
+
+    if st.button("submit"):
+        if name and author and genre:
+            book,msg=Library.Add_book(name,author,genre)
+            if "successfully" in msg:
+                st.success(msg)
+            if book:
+                st.write(f"You book id is {book['ide']}")
+                
+        else:
+            st.warning("Fill all fields")
+if menu=="Delete Book":
+    st.subheader("Delete Existing book")
+    name=st.text_input("Enter name of book you want to delete")
+    ide=st.text_input("Enter ide of book")
+
+    if st.button("Submitt"):
+        if name and ide:
+            msg=Library.delete_book(name,ide)
+            if "successfully" in msg:
+                st.success(msg)
+            else:
+                st.warning("msg")  
+        else:
+            st.warning("Fill All fields")      
 
 
