@@ -1,5 +1,5 @@
 import streamlit as st 
-# from main import library
+from main import Library
 from datetime import date
 
 st.set_page_config(page_title="🏫Library management App",layout="centered")
@@ -11,10 +11,21 @@ menu=st.sidebar.selectbox("Choose Action:",["Add member","Delete member","Update
 if menu == "Add member":
     st.subheader("Add a New Member")
     name = st.text_input("Name")
-    email_input = st.text_input("Enter Email")
-    dob=st.date_input("Date of Birth", min_value=date(1900,1,1),max_value=date(2020,1,1))
+    email = st.text_input("Enter Email")
+    age=st.number_input("Enter your age",min_value=1,step=1)
+    password=st.text_input("Create a strong password",type="password")
+
 
     if st.button("Submit"):
-        st.success(f"Member {name} added successfully!")
+        if name and email and age and password:
+            lib=Library()
+            user,msg=lib.Add_member(name,email,int(age),password)
+            st.success(msg)
+            if user:
+                st.write(f"Your member ide is: {user['ide']}")
+        else:
+            st.warning("Fill all fields")
+        
+        
 
 
