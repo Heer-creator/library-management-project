@@ -77,8 +77,14 @@ class Library:
         return "User not found or password is incorrect"
     
     @classmethod
-    def update_info(cls):
-        pass
+    def update_password(cls,ide,password,new_password=None):
+        data2=cls.members_data()
+        for user in data2:
+            if user["ide"]==ide and user["password"]==password:
+                user["password"]=new_password
+                cls.save_member_data(data2)
+                return "Password updated successfully"
+        return "User id not found or incorrect password"
 
 
     @classmethod

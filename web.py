@@ -5,7 +5,7 @@ from datetime import date
 st.set_page_config(page_title="🏫Library management App",layout="centered")
 st.title("Welcome to Library Management")
 
-menu=st.sidebar.selectbox("Choose Action:",["Add member","Delete member","Update member info","Add Book","Delete Book","Update Book","Available Books","Borrow Book","Return book"])
+menu=st.sidebar.selectbox("Choose Action:",["Add member","Delete member","Change password","Add Book","Delete Book","Available Books","Borrow Book","Return book"])
 
 # Handle menu actions
 if menu == "Add member":
@@ -37,8 +37,23 @@ if menu=="Delete member":
         else:
             st.warning(msg)
 
-if menu=="Update member info":
-    pass
+if menu=="Change password":
+    st.subheader("Change Password")
+    ide=st.text_input("Enter the member's ide:")
+    current_password=st.text_input("Enter current password",type="password")
+
+    new_password=st.text_input("Enter new Password:",type="password")
+    if st.button("Submit"):
+        if ide and current_password and new_password:
+            msg=Library.update_password(ide,current_password,new_password)
+            if "successfully" in msg:
+                st.success(msg)
+            else:
+                st.warning(msg)
+        else:
+            st.error("Fill all fields")
+
+
 
 if menu=="Add Book":
     st.subheader("Add New Book")
